@@ -76,7 +76,7 @@ function storeCard(card) {
 
 	for (key in card) {
 		if (key != "IsMatch"){
-			str += card[key] + "[]"; //[] used a phrase marker; basic will have two, cloze will have three
+			str += card[key] + "***"; //*** used as phrase marker; basic will have two, cloze will have three
 		}
 	}
 	str += "\n"; //add newline to end of string
@@ -101,7 +101,7 @@ function readCards() {
 	fs.readFile("cards.txt", function(err, data){
 		if (err) throw err;
 
-		var formatted = data.replace(/[\[\]]/g, ", ");
+		var formatted = data.replace(/(\*\*\*)/g, ", ");
 		console.log(data);
 	});
 }
@@ -116,8 +116,14 @@ function randomCard() {
 		var random = Math.floor(Math.random() * length);
 
 		var picked = datArray[random];
-		picked //to split by [] and read array to guess
+		var count = picked.match(/(\*\*\*)/g); //counts number of ***
+		picked = picked.split(/(\*\*\*)/); //to split by *** and read array to guess
 	});
+}
+
+//show and guess flashcard
+function flashcard(){
+
 }
 
 //initial menu
