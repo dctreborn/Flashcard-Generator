@@ -7,6 +7,8 @@ function BasicCard(front, back) {
 	this.back = back;
 }
 
+//CREATE JSON FILE INSTEAD TO STORE AND GRAB QUESTIONS
+
 function createBasic(){
 	console.log("Creating a basic card.")
 	inquirer.promt([
@@ -36,7 +38,7 @@ function ClozeCard(text, cloze) {
 
 //cloze match
 ClozeCard.prototype.IsMatch = function(guess) {
-	if (guess != this.cloze) {
+	if (guess != this.cloze.toLowerCase()) {
 		console.log("Sorry. Wrong guess.")
 	} else {
 		console.log("Correct!\n" + this.text);
@@ -118,11 +120,13 @@ function randomCard() {
 		var picked = datArray[random];
 		var count = picked.match(/(\*\*\*)/g); //counts number of ***
 		picked = picked.split(/(\*\*\*)/); //to split by *** and read array to guess
+
+		flashcard(picked);
 	});
 }
 
 //show and guess flashcard
-function flashcard(){
+function flashcard(card){
 
 }
 
