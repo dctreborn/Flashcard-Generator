@@ -8,6 +8,8 @@ function BasicCard(front, back) {
 }
 
 //CREATE JSON FILE INSTEAD TO STORE AND GRAB QUESTIONS
+//select 10 random questions, show question->guess->answer
+//show score at end
 
 function createBasic(){
 	console.log("Creating a basic card.")
