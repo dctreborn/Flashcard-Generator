@@ -24,9 +24,9 @@ function buildTrivia(cards) {
     for (var i = 0; i < length; i++) {
         array.push(new BasicCard(cards[i].front, cards[i].back));
     }
-    console.log(array[0].front);
     console.log("Welcome to Capital Trivia!");
     console.log("Do your best to guess the capitals!");
+    console.log("-----");
     trivia(array);
 }
 
